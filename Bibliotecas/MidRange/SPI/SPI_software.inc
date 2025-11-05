@@ -1,11 +1,11 @@
-;#define SPITRIS TRISB
-;#define MOSITRIS TRISB0
-;#define MISOTRIS TRISB1
-;#define SCKTRIS	TRISB2
-;#define SPIPORT PORTB
-;#define MOSI RB0
-;#define MISO RB1
-;#define SCK RB2
+#define SPITRIS TRISB
+#define MOSITRIS TRISB0
+#define MISOTRIS TRISB1
+#define SCKTRIS	TRISB2
+#define SPIPORT PORTB
+#define MOSI RB0
+#define MISO RB1
+#define SCK RB2
 
 psect udata_bank0
 SPITXREG:	DS 1
@@ -55,7 +55,7 @@ SPITXCicle:
 
 SPISlaveRX:
 	movlw 8
-	movwf SPICOUNTER,F
+	movwf SPICOUNTER
 SPIRXCicle:
 	btfss SCK
 	goto SPIRXCicle
@@ -69,7 +69,7 @@ SPIRXCicle:
 	NextCicleRX:
 		btfsc SCK
 		goto NextCicleRX
-		rrf SPIREG,F
+		rrf SPIRXREG,F
 		decfsz SPICOUNTER
 		goto SPIRXCicle
 		return
