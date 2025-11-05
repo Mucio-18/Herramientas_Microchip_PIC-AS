@@ -1,12 +1,3 @@
-#define SPITRIS TRISB
-#define MOSITRIS TRISB0
-#define MISOTRIS TRISB1
-#define SCKTRIS	TRISB2
-#define SPIPORT PORTB
-#define MOSI RB0
-#define MISO RB1
-#define SCK RB2
-
 psect udata_bank0
 SPITXREG:	DS 1
 SPIRXREG:	DS 1
@@ -15,27 +6,48 @@ DCounter1SPI:	DS 1
 DCounter2SPI:	DS 1
 
 psect code
-SPIMasterIni:
-	banksel SPITRIS
-	bcf MOSITRIS
-	bsf MISOTRIS
-	bcf SCKTRIS
-	banksel 0
-	clrf SPIPORT
-	return
 
-SPISlaveIni:
-	banksel SPITRIS
-	bsf MOSITRIS
-	bcf MISOTRIS
-	bsf SCKTRIS
+SPIMasterIni macro PORT,MOSIpin,MISOpin,SCKpin
+	#define SPIPORT PORT
+	#define MOSI MOSIpin
+	#define MISO MISOpin
+	#define SCK SCKpin
+	banksel TRIS&SPIPORT
+	bcf TRIS&SPIPORT,MOSI
+	bsf TRIS&SPIPORT,MISO
+	bcf TRIS&SPIPORT,SCK
 	banksel 0
-	clrf SPIPORT
-	return
+	clrf PORT&SPIPORT
+	endm
 
-SPIMasterTX:
+SPISlaveIni macro PORT,MOSIpin,MISOpin,SCKpin
+	#define SPIPORT PORT
+	#define MOSI MOSIpin
+	#define MISO MISOpin
+	#define SCK SCKpin
+	banksel TRIS&SPIPORT
+	bsf TRIS&SPIPORT,MOSI
+	bcf TRIS&SPIPORT,MISO
+	bsf TRIS&SPIPORT,SCK
+	banksel 0
+	clrf PORT&SPIPORT
+	endm
+
+SPIMasterTX macro SPIDAT
 	movlw 8
 	movwf SPICOUNTER
+	movlw SPIDAT
+	movwf SPITXREG
+	call SPITXCicle
+	endm
+
+SPISlaveRX macro SPIDAT
+	movlw 8
+	movwf SPICOUNTER,F
+	call SPIRXCicle
+	movwf SPIDAT
+	endm
+
 SPITXCicle:
 	rlf SPITXREG,F
 	btfss CARRY		
@@ -52,9 +64,7 @@ SPITXCicle:
 		goto SPITXCicle
 		return
 
-SPISlaveRX:
-	movlw 8
-	movwf SPICOUNTER,F
+
 SPIRXCicle:
 	btfss SCK
 	goto SPIRXCicle
@@ -71,6 +81,7 @@ SPIRXCicle:
 		rrf SPIREG,F
 		decfsz SPICOUNTER
 		goto SPIRXCicle
+		movf SPIRXREG,W
 		return
 
 SPIClock:
