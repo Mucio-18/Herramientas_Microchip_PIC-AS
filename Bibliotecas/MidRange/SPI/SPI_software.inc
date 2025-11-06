@@ -76,7 +76,7 @@ SPIRXCicle:
 	NextCicleRX:
 		btfsc SCK
 		goto NextCicleRX
-		rrf SPIRXREG,F
+		rlf SPIRXREG,F
 		decfsz SPICOUNTER
 		goto SPIRXCicle
 		return
