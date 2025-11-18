@@ -1,5 +1,14 @@
 ;bits de configuracion
-;---
+
+; CONFIG
+  CONFIG  FOSC = INTOSCIO       ; Oscillator Selection bits (INTOSC oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
+  CONFIG  WDTE = OFF            ; Watchdog Timer Enable bit (WDT disabled)
+  CONFIG  PWRTE = OFF           ; Power-up Timer Enable bit (PWRT disabled)
+  CONFIG  MCLRE = OFF           ; RA5/MCLR/VPP Pin Function Select bit (RA5/MCLR/VPP pin function is digital input, MCLR internally tied to VDD)
+  CONFIG  BOREN = OFF           ; Brown-out Detect Enable bit (BOD disabled)
+  CONFIG  LVP = OFF             ; Low-Voltage Programming Enable bit (RB4/PGM pin has digital I/O function, HV on MCLR must be used for programming)
+  CONFIG  CPD = OFF             ; Data EE Memory Code Protection bit (Data memory code protection off)
+  CONFIG  CP = OFF              ; Flash Program Memory Code Protection bit (Code protection off);---
 ;---
 ;---
 #include <xc.inc>
