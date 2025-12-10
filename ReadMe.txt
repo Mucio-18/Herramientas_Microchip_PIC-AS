@@ -1,8 +1,15 @@
 Este repositorio contiene diferentes carpetas con bibliotecas 
-para microcontroladores PIC en lenguaje ensamblador,
+PCBs y footprints para microcontroladores PIC 
+Bibliotecas en lenguaje ensamblador,
 utilizando el compilador XC8 pic-as de Microchip.
 
 A continuación encontrarás carpetas como:
+-PCBs
+	Contienen esquematicos, PCBs y archivos de 
+	manufactura para tarjetas de desarrollo con
+	microcontroladores PIC al igual que huellas
+	universales para diferentes encapsulados
+	8, 14, 18, 20, 28 y 40 pines DIP
 -Plantillas:
 	Contienen plantillas para crear códigos de ensamblador
 	de manera más rapida y correctamente estructurada, 
