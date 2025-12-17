@@ -15,7 +15,7 @@
 			)
 		)
 	)
-	(property "Value" "8-14pin"
+	(property "Value" "8-14-18-20pin"
 		(at 0 -14 0)
 		(unlocked yes)
 		(layer "F.Fab")
