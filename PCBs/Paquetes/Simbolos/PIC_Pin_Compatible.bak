@@ -2026,7 +2026,7 @@
 			(pin bidirectional line
 				(at -16.51 0 0)
 				(length 2.54)
-				(name "RA3/ra3"
+				(name "RA3/ra5"
 					(effects
 						(font
 							(size 1.27 1.27)
