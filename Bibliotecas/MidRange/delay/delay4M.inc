@@ -1,11 +1,10 @@
-#ifndef DELAY4M_INC
-#define DELAY4M_INC
+#ifndef DELAY_INC
+#define DELAY_INC
 
-; Frecuencia por defecto si el usuario olvida definirla
 messg "Biblioteca delay de www.mgv3d.com"
 messg "Usando cristal de 4MHz"
 
-; Declaración de funciones y variables externas
+; DeclaraciÃ³n de funciones y variables externas
 EXTRN DELAY_COUNTERL,DELAY_COUNTERH,delay_8bit,delay_16bit
 
 ; Macro de interfaz
