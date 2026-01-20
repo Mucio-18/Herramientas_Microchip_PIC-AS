@@ -29,9 +29,10 @@ ini:
 
 main:
 	call ini		;llama a programa inicial
-	mainLoop:
+	loop:
+		call sub1	;llamada a subrutinas
 		nop		;contenido de programa principal
-		goto mainLoop	;loop infinito
+		goto loop	;loop infinito
 
 sub1:				;subrutina generica
 	nop			;contenido de subrutina
