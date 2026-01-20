@@ -105,3 +105,26 @@ donde:
 	u  = unidades
 
 
+##########################################################################################
+Ejemplo para bin2bcd_16_l
+##########################################################################################
+
+	bin2bcd_l_16 11958	; Convertimos la literal de 16bits a BCD 
+	
+La conversión de datos del número 1958  se verá asi en los 3 registros:
+
+registro:	BCD2		BCD1		BCD0
+casillas:	 cm | dm	 um | c		 d  | u
+bits:		7654|3210	7654|3210	7654|3210
+binaro:		0000|0001	0001|1001	0101|8000
+decimal:	  0 | 1		  1 | 9		  5 | 8
+dato:_________________^___________^___^___________^___^__
+donde:
+	cm = centenas de millar (no se usa para 8 o 16 bits)
+	dm = decenas de millar (no se usa para 8 bits)
+	um = unidades de millar (no se usa para 8 bits)
+	c  = centenas 
+	d  = decenas
+	u  = unidades
+
+
