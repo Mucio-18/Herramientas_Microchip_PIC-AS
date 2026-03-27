@@ -1,6 +1,6 @@
 Este repositorio contiene diferentes carpetas con bibliotecas 
 PCBs y footprints para microcontroladores PIC 
-Bibliotecas en lenguaje ensamblador,
+Bibliotecas en lenguaje c y ensamblador,
 utilizando el compilador XC8 pic-as de Microchip.
 
 A continuación encontrarás carpetas como:
@@ -18,10 +18,10 @@ A continuación encontrarás carpetas como:
 	la familia mid range con los PIC16FXXX.
 	En cada carpeta encontrarás un archivo main.S
 -Bibliotecas:
-	Contiene bibliotecas para usar en códigos de ensamblador,
+	Contiene bibliotecas para usar en códigos de c/ensamblador,
 	facilitando la implementación o control de ciertos 
-	periféricos u operaciones complejas del lenguaje 
-	ensamblador, las bibliotecas están separadas por familias
+	periféricos u operaciones complejas del lenguaje, 
+	las bibliotecas están separadas por familias
 	de microcontroladores, como la familia mid range para
 	PIC16FXXX.
 	En cada carpeta encontrarás un archivo .inc
