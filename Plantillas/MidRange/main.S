@@ -14,8 +14,8 @@ variable2: DS 3			;reserva 3 bytes en la variable
 ;vector reinicio
 psect resetVec,global,class=CODE,delta=2
 resetVec:
-	pagesel resetVec	;selecciona pagina 0
-	goto progPrin		;va a programa principal
+	pagesel main	;selecciona pagina 0
+	goto main		;va a programa principal
 
 psect intVec,global,class=CODE,delta=2
 intVec:				;vector interrupcion
@@ -23,15 +23,16 @@ intVec:				;vector interrupcion
 	retife			;regresa de interrupcion
 
 psect code
-progIni:
+ini:
 	nop			;contenido de programa inicial
 	return			;regresa de programa inicial
 
-progPrin:
-	call progIni		;llama a programa inicial
-	mainLoop:
+main:
+	call ini		;llama a programa inicial
+	loop:
+		call sub1	;llamada a subrutinas
 		nop		;contenido de programa principal
-		goto mainLoop	;loop infinito
+		goto loop	;loop infinito
 
 sub1:				;subrutina generica
 	nop			;contenido de subrutina

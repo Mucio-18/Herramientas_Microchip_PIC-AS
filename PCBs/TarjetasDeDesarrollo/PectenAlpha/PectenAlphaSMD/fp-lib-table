@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "PIC_Pin_Compatible")(type "KiCad")(uri "${KIPRJMOD}/PIC_Pin_Compatible.pretty")(options "")(descr ""))
+)
